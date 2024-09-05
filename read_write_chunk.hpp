@@ -61,5 +61,6 @@ void write_chunk(std::string const &magic, std::vector< T > const &from, std::os
 	header.size = uint32_t(from.size() * sizeof(T));
 
 	to.write(reinterpret_cast< const char * >(&header), sizeof(header));
+
 	to.write(reinterpret_cast< const char * >(from.data()), from.size() * sizeof(T));
 }

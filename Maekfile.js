@@ -101,7 +101,8 @@ const game_objs = [
 	maek.CPP('data_path.cpp'),
 	maek.CPP('Mode.cpp'),
 	maek.CPP('gl_compile_program.cpp'),
-	maek.CPP('GL.cpp')
+	maek.CPP('GL.cpp'),
+	maek.CPP('read_assets.cpp')
 ];
 
 //the '[exeFile =] LINK(objFiles, exeFileBase, [, options])' links an array of objects into an executable:
@@ -246,6 +247,9 @@ function init_maek() {
 	// cppFile is the source file name
 	// objFileBase (optional) is the output file (including any subdirectories, but not the extension)
 	maek.CPP = (cppFile, objFileBase, localOptions = {}) => {
+
+		console.log("cppFile: ", cppFile);
+
 		//combine options:
 		const options = combineOptions(localOptions);
 
@@ -253,6 +257,8 @@ function init_maek() {
 		if (typeof objFileBase === 'undefined') {
 			objFileBase = path.relative('', options.objPrefix + cppFile.replace(/\.[^.]*$/, ''));
 		}
+
+		console.log(objFileBase)
 
 		//object file gets os-dependent suffix:
 		const objFile = objFileBase + options.objSuffix;
@@ -336,6 +342,7 @@ function init_maek() {
 		const options = combineOptions(localOptions);
 
 		const exeFile = exeFileBase + options.exeSuffix;
+		console.log("exeFile:", exeFile);
 
 		let link, linkCommand;
 		link = [...options.LINK];
