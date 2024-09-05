@@ -16,13 +16,13 @@ I also hard-coded the array of palettes in `palettes.cpp` and used that array to
 
 The file `tilemap.cpp` is where I created a giant static array of which tile index goes where in the background, and also assigned different palettes to different rows of the background. I used pen and paper to draw a reference tilemap to guide the creation of the static array.
 
-Below is an image containing all the tiles I drew. I didn't create separate wall tiles in separate colors and let the PPU's color palette system do that for me, but I drew some yellow and blue tiles to test out how the colors would look.
+Below is an image containing all the tiles I drew. I didn't process separate wall tiles in separate colors (I let the PPU's color palette system do that for me), but I drew some yellow and blue tiles to test out how the colors would look.
 
 ![Image containing all my tiles](all_tiles.png)
 
 How To Play:
 
-So, the game is minimally playable but somewhat glitchy.
+So, the game is minimally playable but pretty glitchy.
 
 You play as the smiley face blob thingy, and you love hats. You are also sticky, and can wear a hat on any side of your body. Use arrow keys to move, and if you stand *exactly* 1 tile away from a hat (in an orthogonal direction), the hat will turn blue and stick to you! Try to collect a hat on all four sides of your body to win(?).
 
